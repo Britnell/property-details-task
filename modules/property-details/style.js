@@ -13,7 +13,7 @@ export const AccountLabel = styled.h3`
   margin-bottom: ${(props) => props.theme.space.s};
 `;
 
-export const AccountHeadline = styled.div`
+export const AccountHeadline = styled.h4`
   font-size: ${(props) => props.theme.typography["3xl"].fontSize};
   line-height: ${(props) => props.theme.typography["3xl"].lineHeight};
   font-weight: normal;
@@ -21,7 +21,7 @@ export const AccountHeadline = styled.div`
   margin-bottom: ${(props) => props.theme.space.m};
 `;
 
-export const InfoText = styled.div`
+export const InfoText = styled.p`
   line-height: 1.6;
   font-size: ${(props) => props.theme.typography.m.fontSize};
   color: ${(props) => props.theme.colors.neutral[600]};
