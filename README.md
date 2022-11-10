@@ -98,5 +98,7 @@ To learn more about Next.js, take a look at the following resources:
 - semantics are a little jumbled up. AccountListItem is not a li, Accountsections should be sections
 - AccountLabel & AccountHeadline should kind of be switched, each section should have a heading,
   (though in the first secion It does act as a label for the Estimated value)
-
-- property details section is almost an address since name=streetname and postcode comes at the end, would think about changing the content/layout here
+- in this regard I would probably suggest the banner to be h1 or header too
+- I find the RowContainer a little superfluous for some sections, the extra margin could be added elsewhere
+- property details section is almost an address since name==street and postcode comes at the end, would consider changing this as the bankname in the middle is a little surprising, at least it took me a while to understand
+- effective use of git, I added short comments in commits as I am going for time in this task, usually a lot of these changes would have their own branch each, e.g. semantics corrections, function abstraction etc.
