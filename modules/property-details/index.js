@@ -45,6 +45,13 @@ const Detail = ({}) => {
     mortgage = account.associatedMortgages[0];
   }
 
+  // Valuation
+  const purchaseDate = new Date(account.originalPurchasePriceDate);
+  const sincePurchase =
+    account.recentValuation.amount - account.originalPurchasePrice;
+  const sincePurchasePercentage =
+    (sincePurchase / account.originalPurchasePrice) * 100;
+
   return (
     <Inset>
       <AccountSection>
@@ -91,13 +98,29 @@ const Detail = ({}) => {
         <AccountLabel>Valuation change</AccountLabel>
         <AccountList>
           <AccountListItem>
-            <InfoText>Purchased for £92.000 in July 2005</InfoText>
+            <InfoText>
+              Purchased for{" "}
+              <strong>
+                {new Intl.NumberFormat("en-GB", {
+                  style: "currency",
+                  currency: "GBP",
+                }).format(account.originalPurchasePrice)}
+              </strong>{" "}
+              in {format(purchaseDate, "MMMM yyyy").toString()}
+            </InfoText>
           </AccountListItem>
           <AccountListItem>
             <InfoText>since purchase</InfoText>
+            <InfoText>
+              {new Intl.NumberFormat("en-GB", {
+                style: "currency",
+                currency: "GBP",
+              }).format(sincePurchase)}
+            </InfoText>
           </AccountListItem>
           <AccountListItem>
             <InfoText>annual appreciation</InfoText>
+            <InfoText>{`${Math.floor(sincePurchasePercentage)}%`}</InfoText>
           </AccountListItem>
         </AccountList>
       </AccountSection>
