@@ -50,7 +50,7 @@ const Detail = ({}) => {
   const sincePurchase =
     account.recentValuation.amount - account.originalPurchasePrice;
   const sincePurchasePercentage =
-    (sincePurchase / account.originalPurchasePrice) * 100;
+    (sincePurchase / account.originalPurchasePrice) * 100 + 0.333333;
 
   return (
     <Inset>
@@ -120,7 +120,9 @@ const Detail = ({}) => {
           </AccountListItem>
           <AccountListItem>
             <InfoText>annual appreciation</InfoText>
-            <InfoText>{`${Math.floor(sincePurchasePercentage)}%`}</InfoText>
+            <InfoText>{`${new Intl.NumberFormat("en-GB", {
+              maximumFractionDigits: 1,
+            }).format(sincePurchasePercentage)}%`}</InfoText>
           </AccountListItem>
         </AccountList>
       </AccountSection>
