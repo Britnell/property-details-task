@@ -53,7 +53,7 @@ export const InfoValueHighlight = styled.div`
       : props.theme.colors.negative.background};
 `;
 
-export const AccountListItem = styled.div`
+export const AccountListItem = styled.li`
   display: flex;
   justify-content: space-between;
   &:not(:last-of-type) {
@@ -64,3 +64,5 @@ export const AccountListItem = styled.div`
 export const Inset = styled.div`
   padding: 0 ${(props) => props.theme.space.m};
 `;
+
+export const AccountAddress = styled.address``;
