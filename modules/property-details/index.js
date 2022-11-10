@@ -47,7 +47,7 @@ const Detail = ({}) => {
     mortgage = account.associatedMortgages[0];
   }
 
-  // Valuation
+  // * Valuation
   const purchaseDate = new Date(account.originalPurchasePriceDate);
   const sincePurchase =
     account.recentValuation.amount - account.originalPurchasePrice;
@@ -65,6 +65,10 @@ const Detail = ({}) => {
       currency: account.currency,
     }).format(val);
 
+  const formatPercentage = (val) =>
+    new Intl.NumberFormat("en-GB", {
+      maximumFractionDigits: 1,
+    }).format(val);
   return (
     <Inset>
       <AccountSection>
@@ -120,18 +124,14 @@ const Detail = ({}) => {
             <InfoText>since purchase</InfoText>
             <InfoValueHighlight sign={sincePurchase > 0}>
               {`${formatCurrency(sincePurchase)}
-              (${`${new Intl.NumberFormat("en-GB", {
-                maximumFractionDigits: 1,
-              }).format(sincePurchasePercentage)}%`}) `}
+              (${`${formatPercentage(sincePurchasePercentage)}%`}) `}
             </InfoValueHighlight>
           </AccountListItem>
           <AccountListItem>
             <InfoText>annual appreciation</InfoText>
             <InfoValueHighlight
               sign={annualAppreciation > 0}
-            >{`${new Intl.NumberFormat("en-GB", {
-              maximumFractionDigits: 1,
-            }).format(annualAppreciation)}%`}</InfoValueHighlight>
+            >{`${formatPercentage(annualAppreciation)}%`}</InfoValueHighlight>
           </AccountListItem>
         </AccountList>
       </AccountSection>
