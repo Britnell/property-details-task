@@ -4,9 +4,14 @@ import React from "react";
 import { Button } from "../../components/button";
 import RowContainer from "../../components/row-container";
 import {
-  AccountHeadline, AccountLabel, AccountList, AccountListItem, AccountSection, InfoText, Inset
+  AccountHeadline,
+  AccountLabel,
+  AccountList,
+  AccountListItem,
+  AccountSection,
+  InfoText,
+  Inset,
 } from "./style";
-
 
 const account = {
   uid: "65156cdc-5cfd-4b34-b626-49c83569f35e",
@@ -51,26 +56,50 @@ const Detail = ({}) => {
           }).format(account.recentValuation.amount)}
         </AccountHeadline>
         <AccountList>
-          <AccountListItem><InfoText>
-            {`Last updated ${format(lastUpdate, "do MMM yyyy")}`}
-          </InfoText></AccountListItem>
-          <AccountListItem><InfoText>
-            {`Next update ${format(
-              add(lastUpdate, { days: account.updateAfterDays }),
-              "do MMM yyyy"
-            )}`}
-          </InfoText></AccountListItem>
+          <AccountListItem>
+            <InfoText>
+              {`Last updated ${format(lastUpdate, "do MMM yyyy")}`}
+            </InfoText>
+          </AccountListItem>
+          <AccountListItem>
+            <InfoText>
+              {`Next update ${format(
+                add(lastUpdate, { days: account.updateAfterDays }),
+                "do MMM yyyy"
+              )}`}
+            </InfoText>
+          </AccountListItem>
         </AccountList>
       </AccountSection>
       <AccountSection>
         <AccountLabel>Property details</AccountLabel>
         <RowContainer>
           <AccountList>
-            <AccountListItem><InfoText>{account.name}</InfoText></AccountListItem>
-            <AccountListItem><InfoText>{account.bankName}</InfoText></AccountListItem>
-            <AccountListItem><InfoText>{account.postcode}</InfoText></AccountListItem>
+            <AccountListItem>
+              <InfoText>{account.name}</InfoText>
+            </AccountListItem>
+            <AccountListItem>
+              <InfoText>{account.bankName}</InfoText>
+            </AccountListItem>
+            <AccountListItem>
+              <InfoText>{account.postcode}</InfoText>
+            </AccountListItem>
           </AccountList>
         </RowContainer>
+      </AccountSection>
+      <AccountSection>
+        <AccountLabel>Valuation change</AccountLabel>
+        <AccountList>
+          <AccountListItem>
+            <InfoText>Purchased for £92.000 in July 2005</InfoText>
+          </AccountListItem>
+          <AccountListItem>
+            <InfoText>since purchase</InfoText>
+          </AccountListItem>
+          <AccountListItem>
+            <InfoText>annual appreciation</InfoText>
+          </AccountListItem>
+        </AccountList>
       </AccountSection>
       {mortgage && (
         <AccountSection>
@@ -80,15 +109,19 @@ const Detail = ({}) => {
             onClick={() => alert("You have navigated to the mortgage page")}
           >
             <AccountList>
-              <AccountListItem><InfoText>
-                {new Intl.NumberFormat("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                }).format(
-                  Math.abs(account.associatedMortgages[0].currentBalance)
-                )}
-              </InfoText></AccountListItem>
-              <AccountListItem><InfoText>{account.associatedMortgages[0].name}</InfoText></AccountListItem>
+              <AccountListItem>
+                <InfoText>
+                  {new Intl.NumberFormat("en-GB", {
+                    style: "currency",
+                    currency: "GBP",
+                  }).format(
+                    Math.abs(account.associatedMortgages[0].currentBalance)
+                  )}
+                </InfoText>
+              </AccountListItem>
+              <AccountListItem>
+                <InfoText>{account.associatedMortgages[0].name}</InfoText>
+              </AccountListItem>
             </AccountList>
           </RowContainer>
         </AccountSection>
