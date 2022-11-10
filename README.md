@@ -94,3 +94,4 @@ To learn more about Next.js, take a look at the following resources:
 - AccountListItem - `space-between` is added here as it is already flex, rather than making a new component
 - valuation change component - for now is assumed to be positive or negative, i.e. green or red
 - it just occured to me for business a negative change might not want to be highlighted in this case... and would probably be grey rather than red.
+- abstracted formatCurrency function to be more DRY, also this now takes the account currency. this could also be developed to take region into account

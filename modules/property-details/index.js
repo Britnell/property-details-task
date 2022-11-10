@@ -69,6 +69,7 @@ const Detail = ({}) => {
     new Intl.NumberFormat("en-GB", {
       maximumFractionDigits: 1,
     }).format(val);
+
   return (
     <Inset>
       <AccountSection>
@@ -121,14 +122,14 @@ const Detail = ({}) => {
             </InfoText>
           </AccountListItem>
           <AccountListItem>
-            <InfoText>since purchase</InfoText>
+            <InfoText>Since purchase</InfoText>
             <InfoValueHighlight sign={sincePurchase > 0}>
               {`${formatCurrency(sincePurchase)}
               (${`${formatPercentage(sincePurchasePercentage)}%`}) `}
             </InfoValueHighlight>
           </AccountListItem>
           <AccountListItem>
-            <InfoText>annual appreciation</InfoText>
+            <InfoText>Annual appreciation</InfoText>
             <InfoValueHighlight
               sign={annualAppreciation > 0}
             >{`${formatPercentage(annualAppreciation)}%`}</InfoValueHighlight>
