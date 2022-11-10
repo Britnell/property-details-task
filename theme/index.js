@@ -1,11 +1,11 @@
-import Color from "color"
+import Color from "color";
 
 export const generateShades = (hex) => ({
   default: hex,
   contrast: Color(hex).negate().hex(),
   dark: Color(hex).darken(0.3).hex(),
   light: Color(hex).lighten(0.8).hex(),
-})
+});
 
 export const theme = {
   fonts: {
@@ -28,6 +28,14 @@ export const theme = {
     },
     white: {
       default: "#fff",
+    },
+    positive: {
+      background: "#c2f7e1",
+      font: "#006b57",
+    },
+    negative: {
+      background: "#f7c2e1",
+      font: "#6b0057",
     },
   },
   typography: {
@@ -85,4 +93,4 @@ export const theme = {
     xxl: 1400,
     xxxl: 1600,
   },
-}
+};

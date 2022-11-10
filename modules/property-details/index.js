@@ -1,5 +1,5 @@
 /* eslint-disable max-statements */
-import { add, format } from "date-fns";
+import { add, format, sub } from "date-fns";
 import React from "react";
 import { Button } from "../../components/button";
 import RowContainer from "../../components/row-container";
@@ -11,6 +11,7 @@ import {
   AccountSection,
   InfoBold,
   InfoText,
+  InfoValueHighlight,
   Inset,
 } from "./style";
 
@@ -52,6 +53,11 @@ const Detail = ({}) => {
     account.recentValuation.amount - account.originalPurchasePrice;
   const sincePurchasePercentage =
     (sincePurchase / account.originalPurchasePrice) * 100 + 0.333333;
+  const yearsSincePurchase =
+    new Date(
+      Date.now() - new Date(account.originalPurchasePriceDate)
+    ).getFullYear() - 1970;
+  const annualAppreciation = sincePurchasePercentage / yearsSincePurchase;
 
   return (
     <Inset>
@@ -112,18 +118,23 @@ const Detail = ({}) => {
           </AccountListItem>
           <AccountListItem>
             <InfoText>since purchase</InfoText>
-            <InfoText>
-              {new Intl.NumberFormat("en-GB", {
+            <InfoValueHighlight sign={sincePurchase}>
+              {`${new Intl.NumberFormat("en-GB", {
                 style: "currency",
                 currency: "GBP",
               }).format(sincePurchase)}
-            </InfoText>
+              (${`${new Intl.NumberFormat("en-GB", {
+                maximumFractionDigits: 1,
+              }).format(sincePurchasePercentage)}%`}) `}
+            </InfoValueHighlight>
           </AccountListItem>
           <AccountListItem>
             <InfoText>annual appreciation</InfoText>
-            <InfoText>{`${new Intl.NumberFormat("en-GB", {
+            <InfoValueHighlight
+              sign={annualAppreciation}
+            >{`${new Intl.NumberFormat("en-GB", {
               maximumFractionDigits: 1,
-            }).format(sincePurchasePercentage)}%`}</InfoText>
+            }).format(annualAppreciation)}%`}</InfoValueHighlight>
           </AccountListItem>
         </AccountList>
       </AccountSection>

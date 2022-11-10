@@ -39,6 +39,20 @@ export const AccountSection = styled.div`
 }
 `;
 
+export const InfoValueHighlight = styled.div`
+  font-weight: 700;
+  padding: 0.1rem 1rem;
+  border-radius: 1rem;
+  color: ${(props) =>
+    props.sign
+      ? props.theme.colors.positive.font
+      : props.theme.colors.negative.font};
+  background-color: ${(props) =>
+    props.sign
+      ? props.theme.colors.positive.background
+      : props.theme.colors.negative.background};
+`;
+
 export const AccountListItem = styled.div`
   display: flex;
   justify-content: space-between;
