@@ -95,3 +95,8 @@ To learn more about Next.js, take a look at the following resources:
 - valuation change component - for now is assumed to be positive or negative, i.e. green or red
 - it just occured to me for business a negative change might not want to be highlighted in this case... and would probably be grey rather than red.
 - abstracted formatCurrency function to be more DRY, also this now takes the account currency. this could also be developed to take region into account
+- semantics are a little jumbled up. AccountListItem is not a li, Accountsections should be sections
+- AccountLabel & AccountHeadline should kind of be switched, each section should have a heading,
+  (though in the first secion It does act as a label for the Estimated value)
+
+- property details section is almost an address since name=streetname and postcode comes at the end, would think about changing the content/layout here
