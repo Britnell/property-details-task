@@ -59,15 +59,18 @@ const Detail = ({}) => {
     ).getFullYear() - 1970;
   const annualAppreciation = sincePurchasePercentage / yearsSincePurchase;
 
+  const formatCurrency = (val) =>
+    new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: account.currency,
+    }).format(val);
+
   return (
     <Inset>
       <AccountSection>
         <AccountLabel>Estimated Value</AccountLabel>
         <AccountHeadline>
-          {new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-          }).format(account.recentValuation.amount)}
+          {formatCurrency(account.recentValuation.amount)}
         </AccountHeadline>
         <AccountList>
           <AccountListItem>
@@ -108,10 +111,7 @@ const Detail = ({}) => {
             <InfoText>
               Purchased for{" "}
               <InfoBold>
-                {new Intl.NumberFormat("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                }).format(account.originalPurchasePrice)}
+                {formatCurrency(account.originalPurchasePrice)}
               </InfoBold>{" "}
               in {format(purchaseDate, "MMMM yyyy").toString()}
             </InfoText>
@@ -119,10 +119,7 @@ const Detail = ({}) => {
           <AccountListItem>
             <InfoText>since purchase</InfoText>
             <InfoValueHighlight sign={sincePurchase > 0}>
-              {`${new Intl.NumberFormat("en-GB", {
-                style: "currency",
-                currency: "GBP",
-              }).format(sincePurchase)}
+              {`${formatCurrency(sincePurchase)}
               (${`${new Intl.NumberFormat("en-GB", {
                 maximumFractionDigits: 1,
               }).format(sincePurchasePercentage)}%`}) `}
@@ -148,10 +145,7 @@ const Detail = ({}) => {
             <AccountList>
               <AccountListItem>
                 <InfoText>
-                  {new Intl.NumberFormat("en-GB", {
-                    style: "currency",
-                    currency: "GBP",
-                  }).format(
+                  {formatCurrency(
                     Math.abs(account.associatedMortgages[0].currentBalance)
                   )}
                 </InfoText>
