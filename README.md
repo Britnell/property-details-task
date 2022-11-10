@@ -99,6 +99,20 @@ To learn more about Next.js, take a look at the following resources:
 - AccountLabel & AccountHeadline should kind of be switched, each section should have a heading,
   (though in the first secion It does act as a label for the Estimated value)
 - in this regard I would probably suggest the banner to be h1 or header too
-- I find the RowContainer a little superfluous for some sections, the extra margin could be added elsewhere
+- I find the RowContainer a little superfluous sections without click
 - property details section is almost an address since name==street and postcode comes at the end, would consider changing this as the bankname in the middle is a little surprising, at least it took me a while to understand
 - effective use of git, I added short comments in commits as I am going for time in this task, usually a lot of these changes would have their own branch each, e.g. semantics corrections, function abstraction etc.
+
+**Extra**
+fetching from /api - I've probably spent around 2 hrs on the task now so I'll stop, also if I did fetch I'd want to give some dummy data while loading, so the components already render while data is loading, but this takes a little consideration. Proper data is needed or the calcuations will throw errors, or code should be refactored so calulations dont run on dummy data.
+
+**Notes**
+
+1. Given more time, what other changes you would have liked to make?
+   as above loading data from api with skeleton component that renders the same layout as final one does, but with blank values or blanked out by CSS.
+   But this would require quite a lot of changes so i decided not to start on it
+
+2. What UX or design improvements or alterations might you suggest? These can be to existing components or completely new ideas.
+
+as point above, the street + postcode are almost an address, bankname in the middle is a little surprising and could be labeled
+Else there is not a lot of interaction going on really. There could be popups / hover fields with info on how the valuation is calculated.

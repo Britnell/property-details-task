@@ -93,6 +93,7 @@ const Detail = ({}) => {
           </AccountListItem>
         </AccountList>
       </AccountSection>
+
       <AccountSection>
         <AccountLabel>Property details</AccountLabel>
         <RowContainer>
@@ -109,6 +110,7 @@ const Detail = ({}) => {
           </AccountList>
         </RowContainer>
       </AccountSection>
+
       <AccountSection>
         <AccountLabel>Valuation change</AccountLabel>
         <AccountList>
@@ -136,6 +138,7 @@ const Detail = ({}) => {
           </AccountListItem>
         </AccountList>
       </AccountSection>
+
       {mortgage && (
         <AccountSection>
           <AccountLabel>Mortgage</AccountLabel>
