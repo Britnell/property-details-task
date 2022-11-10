@@ -118,7 +118,7 @@ const Detail = ({}) => {
           </AccountListItem>
           <AccountListItem>
             <InfoText>since purchase</InfoText>
-            <InfoValueHighlight sign={sincePurchase}>
+            <InfoValueHighlight sign={sincePurchase > 0}>
               {`${new Intl.NumberFormat("en-GB", {
                 style: "currency",
                 currency: "GBP",
@@ -131,7 +131,7 @@ const Detail = ({}) => {
           <AccountListItem>
             <InfoText>annual appreciation</InfoText>
             <InfoValueHighlight
-              sign={annualAppreciation}
+              sign={annualAppreciation > 0}
             >{`${new Intl.NumberFormat("en-GB", {
               maximumFractionDigits: 1,
             }).format(annualAppreciation)}%`}</InfoValueHighlight>
