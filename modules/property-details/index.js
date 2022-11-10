@@ -9,6 +9,7 @@ import {
   AccountList,
   AccountListItem,
   AccountSection,
+  InfoBold,
   InfoText,
   Inset,
 } from "./style";
@@ -100,12 +101,12 @@ const Detail = ({}) => {
           <AccountListItem>
             <InfoText>
               Purchased for{" "}
-              <strong>
+              <InfoBold>
                 {new Intl.NumberFormat("en-GB", {
                   style: "currency",
                   currency: "GBP",
                 }).format(account.originalPurchasePrice)}
-              </strong>{" "}
+              </InfoBold>{" "}
               in {format(purchaseDate, "MMMM yyyy").toString()}
             </InfoText>
           </AccountListItem>

@@ -26,6 +26,10 @@ export const InfoText = styled.div`
   color: ${(props) => props.theme.colors.neutral[600]};
 `;
 
+export const InfoBold = styled.strong`
+  font-weight: 700;
+`;
+
 export const AccountSection = styled.div`
   padding: ${(props) => props.theme.space.m} 0;
 
